@@ -24,10 +24,10 @@
         <!-- <button onclick="testFunct()">test</button> -->
 
         <script>
-            let tableHTML = '<table>';
-                tableHTML += '<tr><th>Animal ID</th><th>Animal Name</th><th>Owner Name</th><th>Weight</th><th>Age</th><th>Age Bracket</th></tr>';
+            let tableHTML = '<table>'; //to start the table component
+            tableHTML += '<tr><th>Animal ID</th><th>Animal Name</th><th>Owner Name</th><th>Weight</th><th>Age</th><th>Age Bracket</th></tr>'; //adds the headers
 
-                const animals = [
+                const animals = [ //this contains the array of animal objects to be rendered.
                     { id: 1, name: "Fluffy", owner: "Alice", weight: 12, age: 3},
                     { id: 2, name: "Max", owner: "Bob", weight: 20, age: 5},
                     { id: 3, name: "Ichika", owner: "Timothy", weight: 11, age: .1},
@@ -45,14 +45,14 @@
                     { id: 15, name: "Mami", owner: "Nanami", weight: 40, age: 24},
                     { id: 16, name: "Flurry", owner: "Coconut", weight: 10, age: 24}
                 ];
-                tableHTML += '</table>';
+            tableHTML += '</table>'; //closes the table component
                 
-                var table = document.getElementById('animal-table').innerHTML = tableHTML;
+                var table = document.getElementById('animal-table').innerHTML = tableHTML; // finds the div which contains the table
 
-                var theAnimalTable = document.querySelector("table")
-                theAnimalTable.insertRow
+                var theAnimalTable = document.querySelector("table") //finds the table in the div
+                
 
-                function getAgeBracket(age) {
+                function getAgeBracket(age) { //this function takes an age and returns the appropriate age bracket label
                     if (age <= .9) {
                         return "Puppy"
                     } else if (age <= 10) {
@@ -64,9 +64,10 @@
                     }
                 }
 
-                function testFunct(animal) {
-                    var row = theAnimalTable.insertRow(1)
+                function testFunct(animal) { //this function takes in an animal object, creates a row, and adds the details
+                    var row = theAnimalTable.insertRow(1) //this creates a new row, 0 is header, so we use 1
 
+                    //this creates the cells in the row
                     var id = row.insertCell(0)
                     var animalName = row.insertCell(1)
                     var owner = row.insertCell(2)
@@ -74,6 +75,7 @@
                     var age = row.insertCell(4)
                     var ageBracket = row.insertCell(5)
 
+                    //this updates the variables using the animal's details
                     id.innerHTML = animal.id
                     animalName.innerHTML = animal.name
                     owner.innerHTML = animal.owner
@@ -82,13 +84,9 @@
                     ageBracket.innerHTML = getAgeBracket(animal.age)
                 }
 
-                for (var i = animals.length - 1; i > -1; i--) {
+                for (var i = animals.length - 1; i > -1; i--) { // this loops goes through the length of the array and creates rows for each
                     testFunct(animals[i])
                 }
-
-                
-
-
             
         </script>
     </body>
